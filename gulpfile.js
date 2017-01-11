@@ -1,8 +1,12 @@
-var gulp = require("gulp");
-var babel = require("gulp-babel");
+const gulp = require('gulp');
+const babel = require('gulp-babel');
 
-gulp.task("default", function () {
-  return gulp.src("component/components.js")
-    .pipe(babel())
-    .pipe(gulp.dest("dist"));
-});
+//npm install --save-dev gulp-babel babel-preset-2015 
+
+gulp.task('default', () =>
+    gulp.src('final/components.js')
+        .pipe(babel({
+            presets: ['es2015', 'react']
+        }))
+        .pipe(gulp.dest('dist'))
+);
